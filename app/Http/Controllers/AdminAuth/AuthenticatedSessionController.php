@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\AdminAuth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\AdminAuth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+      
         return view('admin.auth.login');
     }
 
