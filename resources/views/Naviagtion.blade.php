@@ -11,11 +11,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('bookings.index') }}">Bookings</a></li>
-            <li><a href="{{ route('my-booking') }}">My Booking</a></li>
-            <li><a href="{{ route('about') }}">About</a></li>
-        </ul>
+            
     </nav>
 
     <div class="container">

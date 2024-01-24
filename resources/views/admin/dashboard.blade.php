@@ -1,8 +1,9 @@
 {{-- resources/views/admin/dashboard.blade.php --}}
 
-@extends('layouts.admin') {{-- Assuming you have a master layout for admin --}}
+{{-- @extends('layouts.admin') Assuming you have a master layout for admin --}}
 
 @section('content')
+Hello
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
