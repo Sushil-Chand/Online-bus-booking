@@ -23,6 +23,24 @@
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        <div> 
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
+
+        <div>
+            <x-input-label for="contact" :value="__('Contact')" />
+            <x-text-input id="contact" name="contact" type="text" class="mt-1 block w-full" :value="old('contact', $user->contact)" required autofocus autocomplete="contact" />
+            <x-input-error class="mt-2" :messages="$errors->get('contact')" />
+        </div>
+
+        <div>
+            <x-input-label for="gender" :value="__('Gender')" />
+            <x-text-input id="gender" name="gender" type="text" class="mt-1 block w-full" :value="old('gender', $user->gender)" required autofocus autocomplete="gender" />
+            <x-input-error class="mt-2" :messages="$errors->get('gender')" />
+        </div>
+
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
