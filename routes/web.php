@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+// Route::get('/admin/dashboard', function () {  // admin route
+//     return view('admin.dashboard');
+// })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
+
+
+// Route::get('/user-home', [userController::class, 'home'])->name('user.home');
 require __DIR__.'/adminauth.php';
+
+
+Route::middleware(['auth:admin', 'verified'])->group(function () {
+    // Routes that require both admin authentication and email verification
+
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+    
+    // Add other admin-specific routes here...
+
+    Route::get('/user-home', [userController::class, 'home'])
+        ->name('user.home');
+    
+    // Add other routes for regular users here...
+});
