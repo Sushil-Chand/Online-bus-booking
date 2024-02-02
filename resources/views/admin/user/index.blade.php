@@ -1,34 +1,32 @@
+<div class="container mt-4">
+    <h1 class="text-center mb-4">User List</h1>
 
-@extends('admin.dashboard')
-@section('content')
-    <!-- resources/views/admin/user/index.blade.php -->
-
-<!-- Assuming you have a master layout -->
-
-
-    <h1>User List</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <!-- Add more columns as needed -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <!-- Add more cells as needed -->
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-@endsection
-
-
-
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-bordered table-fluid">
+                <thead>
+                    
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>      <tr>
+              
+                <tbody>
+                
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <!-- Add more cells as needed -->
+                        </tr>
+                        <tr style="border-bottom: 2px solid #200202;"></tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
 
 // Route::get('/admin/dashboard', function () {  // admin route
 //     return view('admin.dashboard');
@@ -50,7 +50,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     
     // Add other admin-specific routes here...
 
-    Route::get('/user-home', [userController::class, 'home'])
+    Route::get('/user-home', [userController::class, 'userData'])
         ->name('user.home');
     
     // Add other routes for regular users here...

@@ -7,10 +7,12 @@ use App\Models\User;
 
 class userController extends Controller
 {
-    public function home()
+    public function userData()
     {
-        $users = User::all();
+        $user =User::all();
+       
+
        // Retrieve all users from the database
-    return view('admin.user.index', compact('users'));
+    return view('admin.user.index')->with('users', $user);
 }
 }
