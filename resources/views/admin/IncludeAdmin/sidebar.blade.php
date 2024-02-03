@@ -50,7 +50,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Route manager
-                <span class="right badge badge-danger">New</span>
+                {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
           </li>
@@ -59,7 +59,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 User
-                <span class="right badge badge-danger">New</span>
+                
               </p>
             </a>
           </li>
@@ -69,7 +69,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Booking Management
-                <span class="right badge badge-danger">New</span>
+               
               </p>
             </a>
           </li>
@@ -79,7 +79,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                Bus Manage
-                <span class="right badge badge-danger">New</span>
+                
               </p>
             </a>
           </li>
