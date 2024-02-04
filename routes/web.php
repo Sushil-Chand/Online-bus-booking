@@ -54,6 +54,10 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
 
     Route::get('/user-home', [userController::class, 'userData'])
         ->name('user.home');
+        
+        Route::get('/Buses', function () {
+            return view('admin.Buses.index'); 
+        })->name('buses');
     
     // Add other routes for regular users here...
 });
