@@ -58,6 +58,10 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         Route::get('/Buses', function () {
             return view('admin.Buses.index'); 
         })->name('buses');
+
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard'); 
+        })->name('main-dashboard');
     
     // Add other routes for regular users here...
 });
