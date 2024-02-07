@@ -1,10 +1,58 @@
 
 @extends('admin.Includeadmin.main')
- @section('content')  
+@section('title', 'User Index')
+@section('content')
+<div class="content">
+    <section class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb float-right">
+                            <li class="breadcrumb-item active">User</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+    </section>
 
-
-
-<h1>test user</h1>
-
-
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                            <div class="">                             
+                                <a href="
+                               #
+                                "
+                                    class="btn btn-primary px-4 m-2 float-right">Add</a>  
+                            </div>
+                            <div class="card-body table-responsive p-2">
+                                <table class="datatable table">
+                                    <thead>
+                                        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Profile Image</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+        </tr>
+        @foreach ($users as $user)
+            <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->contact }}</td>
+                <td>{{ $user->gender }}</td>
+                <td>{{ $user->address }}</td>
+                <td><img src="{{ $user->profile_image ? asset($user->profile_image) : 'https://via.placeholder.com/150' }}" alt="Profile Image" width="100"></td>
+                <td>{{ $user->created_at }}</td>
+                <td>{{ $user->updated_at }}</td>
+            </tr>
+        @endforeach
+    </table>
+                                
 @endsection

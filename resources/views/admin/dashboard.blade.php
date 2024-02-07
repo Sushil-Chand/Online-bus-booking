@@ -1,5 +1,4 @@
-
-@extends('admin.Includeadmin.main')
+@extends('admin.IncludeAdmin.main')
 @section('title', 'Dashboard')
 @section('content')
  
@@ -8,7 +7,7 @@
         <h2 class="alert alert-success">{{session('message')}}</h2>    
     @endif
 </div>
-
+<hr>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -21,7 +20,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Technician Dashboard</li>
+              <li class="breadcrumb-item active">Operator Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,7 +36,7 @@
         <div class="inner">
           <h3>150</h3>
 
-          <p>New Orders</p>
+          <p>New Booking</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
@@ -52,7 +51,7 @@
         <div class="inner">
           <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-          <p>Bounce Rate</p>
+          <p> Rate </p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
@@ -97,3 +96,4 @@
 </div>
 
 @endsection
+   

@@ -1,33 +1,27 @@
-<table class="table table-striped">
-   
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+@extends('admin.IncludeAdmin.main')
+@section('title', 'buses')
+@section('content')
 
+   
+
+<body class="bg-light">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="card mt-5">
+                  <div class="card-header">
+                      <h4 class="card-title">Student Registration Form</h4>
+                  </div>
+                  <div class="card-body">
+                      <form>
+                          <div class="mb-3">
+                              <label for="name" class="form-label">Name</label>
+                              <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                          </div>
+                          <div class="mb-3">
+                              <label for="email" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                         
+    
 </table>
+@endsection
