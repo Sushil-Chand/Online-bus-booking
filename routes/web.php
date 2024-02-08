@@ -38,17 +38,17 @@ require __DIR__.'/auth.php';
 
 
 // Route::get('/user-home', [userController::class, 'home'])->name('user.home');
-require __DIR__.'/adminauth.php';
+
+
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-
 Route::middleware(['auth:admin', 'verified'])->group(function () {
     // Routes that require both admin authentication and email verification
 
- 
+  
     
     // Add other admin-specific routes here...
 
@@ -65,3 +65,5 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     
     // Add other routes for regular users here...
 });
+
+require __DIR__.'/adminauth.php';
