@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -41,13 +45,11 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+
 
 Route::middleware(['auth:admin', 'verified'])->group(function () {
     // Routes that require both admin authentication and email verification
-
+    
   
     
     // Add other admin-specific routes here...
