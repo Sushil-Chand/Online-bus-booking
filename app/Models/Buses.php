@@ -9,27 +9,24 @@ class Buses extends Model
 {
     use HasFactory;
     protected $table = 'buses';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'bus_number',
-        'bus_plate_number',
-        'bus_type',
+        'bus_name',
+        'bus_code',
+        'type',
+        'operator_id',
         'total_seats',
-        'bus_id',
-        'driver_id',
         'status',
-
+        'user_id',
+        'driver_id',
+        'status'
     ];
-    protected $primarykey = 'bus_id';
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
-
-    public function driver()
+    // Define the relationship with User
+    public function user()
     {
-        return $this->belongsTo(driver::class, 'driver_id');
+        return $this->belongsTo(User::class);
     }
 
 }

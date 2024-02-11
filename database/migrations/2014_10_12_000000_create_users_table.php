@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('contact')->nullable(); // User's contact information
             $table->String('gender')->nullable(); // User's Gender
             $table->string('address')->nullable(); // User's address
-            $table->string('profile_image')->nullable();
+            $table->string('profile_image');
             $table->rememberToken();
             $table->timestamps();
         });

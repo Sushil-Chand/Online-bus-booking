@@ -40,6 +40,23 @@ class RegisteredUserController extends Controller
             'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        if ($request->hasFile('profile_image')) {
+            $gallery = $request->file('profile_image');
+            $extension = $gallery->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+
+            // Store the file in the 'public' disk under the 'profile_images' directory
+            $path = $gallery->storeAs('profile_images', $filename, 'public');
+
+            // Save the file path to the 'profile_image' attribute of the user model
+            $profileImagePath = 'profile_images/' . $filename;
+            dd($profileImagePath);
+        } else {
+            $profileImagePath = null;
+        }
+
+  
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -48,7 +65,8 @@ class RegisteredUserController extends Controller
             'gender' => $request['gender'],
             'address' => $request['address'],
             // Handle profile image upload
-            'profile_image' => $request['profile_image'] ? $request['profile_image']->store('profile_images', 'public') : null,
+            'profile_image' => $profileImagePath,
+        
         ]);
 
         event(new Registered($user));
