@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\Admins\BusController;
+use App\Http\Controllers\Admins\DriverController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +67,33 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         Route::get('/dashboard', function () {
             return view('admin.dashboard'); 
         })->name('main-dashboard');
+
+
+        //driver route
+        // routes/web.php
+
+
+        // Route to display the list of drivers
+        Route::get('/drivers', [DriverController::class, 'index'])->name('drivers.index');
+
+        // Route to display the form for creating a new driver
+        Route::get('/drivers/create', [DriverController::class, 'create'])->name('drivers.create');
+
+        // Route to store a new driver in the database
+        Route::post('/drivers', [DriverController::class, 'store'])->name('drivers.store');
+
+        // Route to display the details of a specific driver
+        Route::get('/drivers/{driver}', [DriverController::class, 'show'])->name('drivers.show');
+
+        // Route to display the form for editing a specific driver
+        Route::get('/drivers/{driver}/edit', [DriverController::class, 'edit'])->name('drivers.edit');
+
+        // Route to update a specific driver in the database
+        Route::put('/drivers/{driver}', [DriverController::class, 'update'])->name('drivers.update');
+
+        // Route to delete a specific driver from the database
+        Route::delete('/drivers/{driver}', [DriverController::class, 'destroy'])->name('drivers.destroy');
+
     
     // Add other routes for regular users here...
 });
