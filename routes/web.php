@@ -80,7 +80,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         Route::get('/drivers/create', [DriverController::class, 'create'])->name('drivers.create');
 
         // Route to store a new driver in the database
-        Route::post('/drivers', [DriverController::class, 'store'])->name('drivers.store');
+        Route::POST('/drivers', [DriverController::class, 'store'])->name('drivers.store');
 
         // Route to display the details of a specific driver
         Route::get('/drivers/{driver}', [DriverController::class, 'show'])->name('drivers.show');
