@@ -4,6 +4,10 @@
 @section('title', 'driver')
 
 @section('content')
+<br>
+<br>
+<div class="content-wrapper">
+    <div class="content">
     <div class="container">
         <h2>Drivers</h2>
         <a href="{{ route('drivers.create') }}" class="btn btn-primary">Add Driver</a>
@@ -22,7 +26,7 @@
                     <th>Gender</th>
                     <th>License Number</th>
                     <th>Contact Number</th>
-                    <th>Status</th>
+             
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -34,7 +38,6 @@
                         <td>{{ $driver->gender }}</td>
                         <td>{{ $driver->license_number }}</td>
                         <td>{{ $driver->contact_number }}</td>
-                        <td>{{ $driver->status }}</td>
                         <td>
                             <a href="{{ route('drivers.show', $driver->id) }}" class="btn btn-info">View</a>
                             <a href="{{ route('drivers.edit', $driver->id) }}" class="btn btn-warning">Edit</a>
