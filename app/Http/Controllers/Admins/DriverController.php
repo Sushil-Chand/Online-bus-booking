@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admins;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Driver;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -36,21 +37,31 @@ class DriverController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'gender' => 'required|string|in:Male,Female',
-            'license_number' => 'required|string|max:255',
-            'contact_number' => 'required|string|max:255',
-            'user_id' => 'required|integer',
-            'status' => 'required|string|in:Active,Inactive',
-        ]);
+{
+    // Validate the request data
+    $validatedData = $request->validate([
+        'name' => 'required|string',
+        'gender' => 'required|in:male,female',
+        'license_number' => 'required|string',
+        'contact_number' => 'required|string',
+    ]);
 
-        Driver::create($request->all());
+    // Get the currently logged-in user's ID
+    $user_id = Auth::id();
 
-        return redirect()->route('admin.Driver.index')->with('success', 'Driver created successfully.');
-    }
+    // Add the user_id and set status to 0 in the request data
+    $data = array_merge($validatedData, [
+        'user_id' => $user_id,
+        'status' => 0,
+    ]);
 
+    // Create a new driver using the model
+    $driver = Driver::create($data);
+
+    // Redirect to the index page with a success message
+    return redirect(route('drivers.index'))->with('success', 'Driver created successfully.');
+}
+    
     /**
      * Display the specified driver.
      *
@@ -83,17 +94,16 @@ class DriverController extends Controller
     public function update(Request $request, Driver $driver)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'gender' => 'required|string|in:Male,Female',
-            'license_number' => 'required|string|max:255',
-            'contact_number' => 'required|string|max:255',
-            'user_id' => 'required|integer',
-            'status' => 'required|string|in:Active,Inactive',
+            'name' => 'required|string',
+            'gender' => 'required|in:male,female',
+            'license_number' => 'required|string',
+            'contact_number' => 'required|string',
+            
         ]);
 
         $driver->update($request->all());
 
-        return redirect()->route('admin.Driver.index')->with('success', 'Driver updated successfully.');
+        return redirect()->route('drivers.index')->with('success', 'Driver updated successfully.');
     }
 
     /**
@@ -106,6 +116,6 @@ class DriverController extends Controller
     {
         $driver->delete();
 
-        return redirect()->route('admin.Driver.index')->with('success', 'Driver deleted successfully.');
+        return redirect()->route('drivers.index')->with('success', 'Driver deleted successfully.');
     }
 }
