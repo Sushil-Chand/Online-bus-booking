@@ -20,8 +20,10 @@
                     <div class="card-header">Create a New Driver</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('drivers.store') }}">
+                        <form method="post" action="{{ route('drivers.store') }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                             @csrf
+                            @method('post')
 
                             <div class="form-group">
                                 <label for="name">Name:</label>
@@ -46,6 +48,7 @@
                                 <input type="text" name="contact_number" id="contact_number" class="form-control" required>
                             </div>
 
+                          
                             <!-- Add more fields as needed -->
 
                             <div class="form-group">
