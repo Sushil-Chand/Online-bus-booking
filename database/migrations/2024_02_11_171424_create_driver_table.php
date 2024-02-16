@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('license_number')->unique();
             $table->string('contact_number');
-            $table->foreignId('user_id')->constrained('users','id');
+            $table->foreignId('user_id')->constrained('users');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

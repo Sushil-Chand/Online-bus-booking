@@ -1,10 +1,12 @@
+<!-- resources/views/admin/Operators/create.blade.php -->
 
 @extends('admin.Includeadmin.main')
-@section('title', 'operator Create')
+@section('title', 'Create Operator')
 
 @section('content')
-<div class="content-wrapper">
-<div class="modal fade" id="exampleModalCenteraddbus" tabindex="-1" role="dialog" 
+    <div class="content-wrapper">
+        <div class="content">
+            div class="modal fade" id="exampleModalCenteraddbus" tabindex="-1" role="dialog" 
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -22,14 +24,14 @@
                       <div class="row">
                       <div class="col-md-6">
                           <div class="form-group">
-                                <label for="exampleInputEmail1">Bus Name</label>
+                                <!-- <label for="exampleInputEmail1">Bus Name</label> -->
                                 <input name="operator_name"  class="form-control" aria-describedby="emailHelp"
                                  placeholder="Enter Operator Name" type="text">
                           </div>
                           </div>
                           <div class="col-md-6">
                           <div class="form-group">
-                                <label for="exampleInputEmail1">Bus Name</label> 
+                                <!-- <label for="exampleInputEmail1">Bus Name</label> -->
                                 <input name="operator_email"  class="form-control" aria-describedby="emailHelp" 
                                 placeholder="Enter Email" type="email">
                           </div>
@@ -72,10 +74,6 @@
       </div>
     </div>
   </div>
-</div>
-
-  
-  @endsection
-  
-  
-  
+    </div>
+    
+@endsection

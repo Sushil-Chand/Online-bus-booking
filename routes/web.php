@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\Admins\BusController;
 use App\Http\Controllers\Admins\DriverController;
+use App\Http\Controllers\Admins\OperatorController;
 
 
 /*
@@ -94,8 +95,29 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         // Route to delete a specific driver from the database
         Route::delete('/drivers/{driver}', [DriverController::class, 'destroy'])->name('drivers.destroy');
 
-    
+        
+        
+
+        // Operator Routes
+        Route::get('/operators', [OperatorController::class, 'index'])->name('operators.index');
+        Route::get('/operators/create', [OperatorController::class, 'create'])->name('operators.create');
+        Route::post('/operators/store', [OperatorController::class, 'store'])->name('operators.store');
+        Route::get('/operators/{id}', [OperatorController::class, 'show'])->name('operators.show');
+        Route::get('/operators/{id}/edit', [OperatorController::class, 'edit'])->name('operators.edit');
+        Route::put('/operators/{id}', [OperatorController::class, 'update'])->name('operators.update');
+        Route::delete('/operators/{id}', [OperatorController::class, 'destroy'])->name('operators.destroy');
     // Add other routes for regular users here...
+
+    // Buses Routes
+
+    // Buses Routes
+        Route::get('/buses', [BusController::class, 'index'])->name('buses.index');
+        Route::get('/buses/create', [BusController::class, 'create'])->name('buses.create');
+        Route::post('/buses/store', [BusController::class, 'store'])->name('buses.store');
+        Route::get('/buses/{id}', [BusController::class, 'show'])->name('buses.show');
+        Route::get('/buses/{id}/edit', [BusController::class, 'edit'])->name('buses.edit');
+        Route::put('/buses/{id}', [BusController::class, 'update'])->name('buses.update');
+        Route::delete('/buses/{id}', [BusController::class, 'destroy'])->name('buses.destroy');
 });
 
 require __DIR__.'/adminauth.php';

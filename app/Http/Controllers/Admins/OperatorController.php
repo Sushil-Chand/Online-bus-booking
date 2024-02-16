@@ -20,8 +20,9 @@ class OperatorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.Operators.edit');
+
+    {   
+        return view('admin.Operators.create');
     }
     /**
      * Store a newly created resource in storage.

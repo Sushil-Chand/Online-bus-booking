@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('bus_name');
             $table->string('bus_code');
             $table->string('type');
-            $table->integer('operator_id');
+            $table->foreignId('operator_id')->constrained('operators','id');
             $table->integer('total_seats');
             $table->foreignId('user_id')->constrained('users','id');
             $table->foreignId('driver_id')->constrained('drivers','id');
